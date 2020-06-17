@@ -2,6 +2,12 @@
 
 one:
   user: one
+  order_type: order
 
 two:
+  user: one
+  order_type: basket
+
+three:
   user: two
+  order_type: basket

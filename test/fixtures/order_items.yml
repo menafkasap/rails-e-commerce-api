@@ -2,10 +2,10 @@
 
 one:
   amount: 1
-  order: one
+  order: two
   product: one
 
 two:
-  amount: 1
-  order: two
+  amount: 2
+  order: three
   product: two

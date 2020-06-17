@@ -1,11 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  price: 
-  inventory: 
+  name: Product 1
+  price: 10
+  inventory: 10
 
 two:
-  name: MyString
-  price: 
-  inventory: 
+  name: Product 2
+  price: 15
+  inventory: 0

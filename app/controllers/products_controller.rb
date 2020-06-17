@@ -5,12 +5,12 @@ class ProductsController < ApplicationController
   def index
     @products = Product.all
 
-    render json: @products
+    render json: json_response(@products)
   end
 
   # GET /products/1
   def show
-    render json: @product
+    render json: json_response(@product)
   end
 
   # POST /products
@@ -18,18 +18,18 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
 
     if @product.save
-      render json: @product, status: :created, location: @product
+      render json: json_response(@product, '201'), status: :created, location: @product
     else
-      render json: @product.errors, status: :unprocessable_entity
+      render json: json_response(@product.errors, '422'), status: :unprocessable_entity
     end
   end
 
   # PATCH/PUT /products/1
   def update
     if @product.update(product_params)
-      render json: @product
+      render json: json_response(@product)
     else
-      render json: @product.errors, status: :unprocessable_entity
+      render json: json_response(@product.errors, '422'), status: :unprocessable_entity
     end
   end
 

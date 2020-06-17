@@ -5,12 +5,12 @@ class UsersController < ApplicationController
   def index
     @users = User.all
 
-    render json: @users
+    render json: json_response(@users)
   end
 
   # GET /users/1
   def show
-    render json: @user
+    render json: json_response(@user)
   end
 
   # POST /users
@@ -18,18 +18,21 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      render json: @user, status: :created, location: @user
+      # basket is created after creating user successfully
+      Order.create(user_id: @user.id) # default order_type is basket
+
+      render json: json_response(@user, '201'), status: :created, location: @user
     else
-      render json: @user.errors, status: :unprocessable_entity
+      render json: json_response(@user.errors, '422'), status: :unprocessable_entity
     end
   end
 
   # PATCH/PUT /users/1
   def update
     if @user.update(user_params)
-      render json: @user
+      render json: json_response(@user)
     else
-      render json: @user.errors, status: :unprocessable_entity
+      render json: json_response(@user.errors, '422'), status: :unprocessable_entity
     end
   end
 
