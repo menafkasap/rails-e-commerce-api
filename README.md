@@ -2,6 +2,8 @@
 
 E-Commerce API is a rails-api where users can add items to their baskets and convert orders by purchasing them.
 
+You can reach [documentation page](https://documenter.getpostman.com/view/5265925/SzzoaFNQ)
+
 #### What you can do
 
 With Rails E-Commerce API you can

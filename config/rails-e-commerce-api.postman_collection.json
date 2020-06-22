@@ -6,6 +6,45 @@
 	},
 	"item": [
 		{
+			"name": "list users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "show user",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/users/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "create user",
 			"request": {
 				"method": "POST",
@@ -56,6 +95,118 @@
 			"response": []
 		},
 		{
+			"name": "update user",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user[email]",
+							"value": "ahmet@mehmet.com",
+							"type": "text"
+						},
+						{
+							"key": "user[password]",
+							"value": "123",
+							"type": "text"
+						},
+						{
+							"key": "user[first_name]",
+							"value": "ahmet2",
+							"type": "text"
+						},
+						{
+							"key": "user[last_name]",
+							"value": "mehmet2",
+							"type": "text"
+						},
+						{
+							"key": "user[phone]",
+							"value": "0533 333",
+							"type": "text"
+						}
+					],
+					"options": {
+						"formdata": {}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/users/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "destroy user",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/users/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "list products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "show product",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/products/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"products",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "create product",
 			"request": {
 				"method": "POST",
@@ -78,10 +229,55 @@
 							"value": "8",
 							"type": "text"
 						}
-					]
+					],
+					"options": {
+						"formdata": {}
+					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/products/",
+					"raw": "http://localhost:3000/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update product",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "product[name]",
+							"value": "product 1",
+							"type": "text"
+						},
+						{
+							"key": "product[price]",
+							"value": "10",
+							"type": "text"
+						},
+						{
+							"key": "product[inventory]",
+							"value": "5",
+							"type": "text"
+						}
+					],
+					"options": {
+						"formdata": {}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/products/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -89,19 +285,39 @@
 					"port": "3000",
 					"path": [
 						"products",
-						""
+						"1"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "get orders",
+			"name": "destroy product",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/products/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"products",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "list orders",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/users/1/orders/",
+					"raw": "http://localhost:3000/users/1/orders",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -110,15 +326,14 @@
 					"path": [
 						"users",
 						"1",
-						"orders",
-						""
+						"orders"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "get basket",
+			"name": "show basket",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -148,7 +363,7 @@
 					"formdata": [
 						{
 							"key": "order[order_items_attributes][0][amount]",
-							"value": "4",
+							"value": "3",
 							"type": "text"
 						},
 						{
@@ -166,7 +381,10 @@
 							"value": "2",
 							"type": "text"
 						}
-					]
+					],
+					"options": {
+						"formdata": {}
+					}
 				},
 				"url": {
 					"raw": "http://localhost:3000/users/1/basket/add",
