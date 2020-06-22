@@ -5,7 +5,7 @@ class OrdersController < ApplicationController
 
   # GET /users/:user_id/orders
   def index
-    @orders = @user.orders.where(order_type: 'order')
+    @orders = @user.orders.where(order_type: 'order').order("updated_at DESC")
 
     render json: json_response(@orders)
   end

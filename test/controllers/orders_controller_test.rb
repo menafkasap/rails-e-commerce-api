@@ -84,6 +84,29 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
     end
   end
 
+  test "should list orders recent order" do
+    # we have just one order now, add another order to user to test order
+    product = products(:one)
+    post "/users/#{@user.id}/basket/add", params: {
+      order: {
+        order_items_attributes: { '0': { amount: "2", product_id: "#{product.id}" } }
+      }
+    }
+    travel 1.hour do
+      post "/users/#{@user.id}/basket/purchase"
+      new_order_id = (JSON.parse(@response.body))['data']['id']
+      # done
+
+      get "/users/#{@user.id}/orders"
+
+      response_body = JSON.parse(@response.body)
+      assert_equal(2, response_body['data'].count)
+
+      assert_equal(new_order_id, response_body['data'][0]['id'])
+      assert_equal(@order.id, response_body['data'][1]['id'])
+    end
+  end
+
   # fails
 
   test "should get error when user does not exist" do
